@@ -1,0 +1,16 @@
+#ubuntu netplan config example for secondary IPs and routes
+#######
+
+network:
+  version: 2
+  ethernets:
+    ens160:
+      dhcp4: false
+      dhcp6: false
+      addresses:
+         [10.91.161.41/24,10.91.161.42/24,10.91.161.43/24,10.91.161.44/24,10.91.161.50/24,10.91.161.51/24]
+      routes:
+        - to: default
+          via: 10.91.161.1
+      nameservers:
+        addresses: [10.90.246.51]
